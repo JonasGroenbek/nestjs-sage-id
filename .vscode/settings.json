@@ -1,0 +1,21 @@
+{
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "eslint.validate": ["typescript", "javascript"],
+    "editor.formatOnSave": true,
+    "[typescript, javascript, javascriptreact, typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "docthis.inlineOneLiners": true,
+    "docthis.includeDescriptionTag": true,
+    "docthis.includeTypes": false,
+    "docthis.returnsTag": false,
+    "docthis.includeMemberOfOnClassMembers": false,
+    "docthis.inferTypesFromNames": false,
+    "docthis.includeAuthorTag": true,
+    "docthis.authorName": "Jonas Grønbek",
+    "docthis.includeDateTag": true,
+    "docthis.dateTagFormat": "dd/mm/yyyy"
+  }
