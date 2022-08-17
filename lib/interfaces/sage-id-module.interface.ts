@@ -18,4 +18,9 @@ export interface SageOptions {
   readonly authRedirectUri: string;
   readonly subscriptionPrimaryKey: string;
   readonly companyId: number;
+  readonly retryStrategy: {
+    maxRetryAttempts: number;
+    scalingDuration: number;
+    excludedStatusCodes?: number[];
+  };
 }

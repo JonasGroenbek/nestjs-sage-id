@@ -1,7 +1,7 @@
 import { timer, Observable, throwError } from 'rxjs';
-import { finalize, mergeMap } from 'rxjs/operators';
+import { mergeMap } from 'rxjs/operators';
 
-export const retry =
+export const retryStrategy =
   ({
     maxRetryAttempts = 3,
     scalingDuration = 300,
@@ -23,14 +23,8 @@ export const retry =
         ) {
           return throwError(() => error);
         }
-        console.error(
-          `Attempt ${retryAttempt}: retrying in ${
-            retryAttempt * scalingDuration
-          }ms, status: ${error?.response?.status}, url: ${error?.config?.url}`,
-        );
         // retry after 1s, 2s, etc...
         return timer(retryAttempt * scalingDuration);
       }),
-      finalize(() => console.log('Finishing retry strategy.')),
     );
   };
