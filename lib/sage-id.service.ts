@@ -19,7 +19,7 @@ export class SageIdService {
    * which the Sage authentication modal has redirected the user to, after a successful authentication.
    * @author Jonas Grønbek
    * @date 17/08/2022
-   * @param authorizationCode
+   * @param authorizationCode This is the "authorization_code" param provided to the window which the sage id modal has redirected to after a succesful login
    * @return {*}
    */
   async setSageToken(authorizationCode: string): Promise<SageAccessToken> {
@@ -50,7 +50,7 @@ export class SageIdService {
    * @description This method is for when you want to refresh an unexpired Sage access token.
    * @author Jonas Grønbek
    * @date 17/08/2022
-   * @param refreshToken
+   * @param refreshToken This token is a part of the sage token provided by authenticating to sage
    * @return {*}
    */
   async refreshSageToken(refreshToken: string): Promise<SageAccessToken> {
