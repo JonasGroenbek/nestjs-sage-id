@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "description": "",
   "author": "Jonas Grønbek",
-  "private": true,
+  "private": false,
   "license": "UNLICENSED",
+  "keywords": ["nestjs", "sage", "sage200"],
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
@@ -43,10 +44,10 @@
     "typescript": "^4.3.5"
   },
   "peerDependencies": {
-    "reflect-metadata": "^^0.1.12 || ^0.1.13",
+    "reflect-metadata": "^0.1.0",
     "@nestjs/common": "^8.0.0 || ^9.0.0",
-    "axios": "^0.27.2",
-    "rxjs": "^6.0.0 || ^7.2.0"
+    "axios": "^0.24.0 || ^0.25.0 || ^0.26.0 || ^0.27.0",
+    "rxjs": "^6.0.0 || ^7.0.0"
   },
   "jest": {
     "moduleFileExtensions": [
