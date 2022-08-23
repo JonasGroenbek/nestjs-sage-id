@@ -1,6 +1,6 @@
 {
   "name": "nestjs-sage-id",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "private": false,
     "author": {
@@ -8,11 +8,8 @@
     "url": "http://github.com/jonasgroenbek"
   },
   "license": "MIT",
-  "main": "./lib/index.js",
-  "typings": "./lib/index.d.ts",
-  "files": [
-    "lib"
-  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "keywords": ["nestjs", "sage", "sage200"],
   "scripts": {
     "prebuild": "rimraf dist",
