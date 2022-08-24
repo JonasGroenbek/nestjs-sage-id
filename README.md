@@ -17,7 +17,7 @@
 - [Example](#example)
 - [Contributing](#contributing)
 - [License](#license)
-- [Acknowledgements](#acknowledgements)
+- [Acknowledgments](#acknowledgements)
 
 ## About
 
@@ -34,11 +34,10 @@ npm install --save nestjs-sage-id
 ## Getting Started
 
 The simplest way to use `nestjs-sage-id` is to use `SageIdModule.register`.
-However, since the credentials used to authenticate throught the sage-id are confidential,
-it is encouraged to use environment variables or a external storage method.
-
+However, since the credentials used to authenticate through the sage-id are confidential,
+it is encouraged to use environment variable(s) or an external storage method.
 Either option will most likely be done in an asynchronous context,
-so the example will use the `registerAsync` function.
+so the example will use the `SageIdModule.registerAsync` function.
 
 ```typescript
 import { Module } from '@nestjs/commosetSageTokenn';
@@ -74,7 +73,7 @@ import { SageIdModule } from 'nestjs-sage-id';
 export class SageModule {}
 ```
 
-Which will provide a injectable instance of the SageIdService to the providers of the module.
+This will provide an injectable instance of the SageIdService to the module providers.
 
 ```typescript
 import { forwardRef, HttpStatus, Inject, Injectable } from '@nestjs/common';
@@ -82,34 +81,33 @@ import { SageAccessToken, SageIdService } from 'nestjs-sage-id';
 
 @Injectable()
 export class SageService {
-  constructor(
-    private readonly sageIdService: SageIdService,
-  ) {}
+  constructor(private readonly sageIdService: SageIdService) {}
 
   async getCachedSageRefreshToken(): Promise<string> {
-    //retrieve the stored refresh token
+    // retrieve the refresh token of the stored token
   }
 
   async setSageToken(authorizationCode: string): Promise<void> {
     const token = await this.sageIdService.getSageToken(authorizationCode);
-    this.attemptSetSageToken(token);
+    // store the token
   }
 
   async refreshSageToken(): Promise<void> {
     const token = await this.sageIdService.refreshSageToken(
       await this.getCachedSageRefreshToken(),
     );
-    this.attemptSetSageToken(token);
+    // store the token
   }
+}
 ```
 
 ## Issues
 
-when providing issues please make sure to include a MRE (Minimal reproducible example) post.
+Please include an MRE (Minimal reproducible example) when providing issues.
 
 ## Contributing
 
-All contributions are appreciated, the more the merrier. Please
+All contributions are appreciated. The more, the merrier. Please
 make sure to follow the below guidelines when contributing.
 
 1. Fork the repository
@@ -122,7 +120,7 @@ make sure to follow the below guidelines when contributing.
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-## Acknowledgements
+## Acknowledgments
 
 - [nestjs](https://nestjs.com)
 - [sage-id](https://gb-kb.sage.com/portal/app/portlets/results/viewsolution.jsp?solutionid=210226173239343)
