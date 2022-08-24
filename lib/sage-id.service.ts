@@ -6,6 +6,14 @@ import { SageAccessToken } from './dto/sage-access-token.dto';
 import { SageOptions } from './interfaces';
 import { retryStrategy } from './operators/retryStrategy';
 
+/**
+ * @description This provider is used to interact with the sage-id API, in order to get and refresh access tokens.
+ * @link https://gb-kb.sage.com/portal/app/portlets/results/viewsolution.jsp?solutionid=210226173239343
+ * @author Jonas Grønbek
+ * @date 24/08/2022
+ * @export
+ * @class SageIdService
+ */
 @Injectable()
 export class SageIdService {
   constructor(
@@ -22,7 +30,7 @@ export class SageIdService {
    * @param authorizationCode This is the "authorization_code" param provided to the window which the sage id modal has redirected to after a succesful login
    * @return {*}
    */
-  async setSageToken(authorizationCode: string): Promise<SageAccessToken> {
+  async getAccessToken(authorizationCode: string): Promise<SageAccessToken> {
     const request = this.httpService
       .post<SageAccessToken>('oauth/token', {
         client_id: this.config.clientId,
@@ -53,7 +61,7 @@ export class SageIdService {
    * @param refreshToken This token is a part of the sage token provided by authenticating to sage
    * @return {*}
    */
-  async refreshSageToken(refreshToken: string): Promise<SageAccessToken> {
+  async refreshAccessToken(refreshToken: string): Promise<SageAccessToken> {
     const request = this.httpService
       .post<SageAccessToken>('oauth/token', {
         client_id: this.config.clientId,

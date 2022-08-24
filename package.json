@@ -1,7 +1,7 @@
 {
   "name": "nestjs-sage-id",
-  "version": "0.0.4",
-  "description": "",
+  "version": "0.0.5",
+  "description": "A nestjs module used to interact with the sage-id API",
   "private": false,
     "author": {
     "name": "Jonas Grønbek",
