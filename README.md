@@ -88,12 +88,12 @@ export class SageService {
   }
 
   async setSageToken(authorizationCode: string): Promise<void> {
-    const token = await this.sageIdService.getSageToken(authorizationCode);
+    const token = await this.sageIdService.getAccessToken(authorizationCode);
     // store the token
   }
 
   async refreshSageToken(): Promise<void> {
-    const token = await this.sageIdService.refreshSageToken(
+    const token = await this.sageIdService.refreshAccessToken(
       await this.getCachedSageRefreshToken(),
     );
     // store the token
